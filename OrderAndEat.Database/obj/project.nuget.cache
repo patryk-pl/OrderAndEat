@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZAV8e9ppxvk/X4j3b9mrm6Dn4zm3G6voPomInN8jkwG46VUUyT0uE3+i1MWOMpXQ8orz2vM6Q5Tw6/V1doTXNQ==",
+  "success": true,
+  "projectFilePath": "C:\\CSharpApp\\OrderAndEat\\OrderAndEat.Database\\OrderAndEat.Database.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Patryk\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Patryk\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
