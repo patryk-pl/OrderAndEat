@@ -1,0 +1,9 @@
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\bin\Debug\netstandard2.0\OrderAndEat.Database.deps.json
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\bin\Debug\netstandard2.0\OrderAndEat.Database.dll
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\bin\Debug\netstandard2.0\OrderAndEat.Database.pdb
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.csprojAssemblyReference.cache
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.AssemblyInfoInputs.cache
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.AssemblyInfo.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.csproj.CoreCompileInputs.cache
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.dll
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.pdb
