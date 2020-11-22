@@ -6,7 +6,7 @@ C:\CSharpApp\OrderAndEat\OrderAndEat.Core\bin\Debug\netstandard2.0\OrderAndEat.D
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csprojAssemblyReference.cache
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.AssemblyInfoInputs.cache
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.AssemblyInfo.cs
-C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csproj.CoreCompileInputs.cache
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csproj.CopyComplete
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.dll
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.pdb
+C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csproj.CoreCompileInputs.cache

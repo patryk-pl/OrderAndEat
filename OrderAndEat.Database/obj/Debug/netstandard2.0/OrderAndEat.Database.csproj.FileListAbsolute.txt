@@ -6,3 +6,4 @@ C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndE
 C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.AssemblyInfo.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.dll
 C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.pdb
+C:\CSharpApp\OrderAndEat\OrderAndEat.Database\obj\Debug\netstandard2.0\OrderAndEat.Database.csproj.CoreCompileInputs.cache
