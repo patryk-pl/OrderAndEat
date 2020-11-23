@@ -30,9 +30,9 @@ namespace OrderAndEat.Database
             return list;
         }
 
-        public void SaveChanges()
+        public bool SaveChanges()
         {
-            _dbContext.SaveChanges();
+            return _dbContext.SaveChanges() > 0;
         }
     }
 }
