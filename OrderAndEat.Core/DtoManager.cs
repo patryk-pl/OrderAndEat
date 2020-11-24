@@ -6,23 +6,23 @@ using System.Text;
 namespace OrderAndEat.Core
 {
 
-    public class CategoryManager : ICategoryManager
+    public class DtoManager : IDtoManager
     {
         private readonly ICategoryRepository _categoryRepository;
-        private readonly CategoriesMapper _categoriesMapper;
+        private readonly DtoMapper _DtoMapper;
 
-        public CategoryManager(ICategoryRepository categoryRepository,
-                               CategoriesMapper categoriesMapper)
+        public DtoManager(ICategoryRepository categoryRepository,
+                               DtoMapper categoriesMapper)
         {
             _categoryRepository = categoryRepository;
-            _categoriesMapper = categoriesMapper;
+            _DtoMapper = categoriesMapper;
         }
 
         public IEnumerable<CategoryDto> GetAllCategory()
         {
             var categoryEntities = _categoryRepository.GetAllCategories();
 
-            return _categoriesMapper.Map(categoryEntities);
+            return _DtoMapper.Map(categoryEntities);
         }
 
     }

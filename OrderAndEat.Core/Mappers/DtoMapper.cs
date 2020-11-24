@@ -6,11 +6,11 @@ using System.Text;
 
 namespace OrderAndEat.Core
 {
-    public class CategoriesMapper
+    public class DtoMapper
     {
         private IMapper _mapper;
 
-        public CategoriesMapper()
+        public DtoMapper()
         {
             _mapper = new MapperConfiguration(config =>
             {

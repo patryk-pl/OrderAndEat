@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Mappers\" />
   </ItemGroup>
 
 </Project>
