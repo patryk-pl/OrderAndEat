@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OrderAndEat.Core.Mappers
+namespace OrderAndEat.Core
 {
     public class CategoriesMapper
     {
@@ -19,6 +19,7 @@ namespace OrderAndEat.Core.Mappers
             }).CreateMapper();
         }
 
+        #region Category Maps
         public CategoryDto Map(Category category) 
             => _mapper.Map<CategoryDto>(category);
 
@@ -26,9 +27,10 @@ namespace OrderAndEat.Core.Mappers
             => _mapper.Map<IEnumerable<CategoryDto>>(categories);
 
         public Category Map(CategoryDto category)
-            => _mapper.Map<CategoryDto>(category);
+            => _mapper.Map<Category>(category);
 
         public IEnumerable<Category> Map(IEnumerable<CategoryDto> categories)
-            => _mapper.Map<IEnumerable<CategoryDto>>(categories);
+            => _mapper.Map<IEnumerable<Category>>(categories);
+        #endregion
     }
 }

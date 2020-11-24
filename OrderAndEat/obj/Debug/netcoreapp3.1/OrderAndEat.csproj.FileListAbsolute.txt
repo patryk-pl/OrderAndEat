@@ -428,3 +428,4 @@ C:\CSharpApp\OrderAndEat\OrderAndEat\bin\Debug\netcoreapp3.1\Microsoft.EntityFra
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\OrderAndEat.csproj.CoreCompileInputs.cache
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\OrderAndEat.MvcApplicationPartsAssemblyInfo.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\OrderAndEat.MvcApplicationPartsAssemblyInfo.cache
+C:\CSharpApp\OrderAndEat\OrderAndEat\bin\Debug\netcoreapp3.1\AutoMapper.dll

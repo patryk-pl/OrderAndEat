@@ -9,3 +9,4 @@ C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.C
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csproj.CopyComplete
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.dll
 C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.pdb
+C:\CSharpApp\OrderAndEat\OrderAndEat.Core\obj\Debug\netstandard2.0\OrderAndEat.Core.csproj.CoreCompileInputs.cache
