@@ -6,19 +6,19 @@ using System.Text;
 namespace OrderAndEat.Core
 {
 
-    public class DtoManager : IDtoManager
+    public class CategoryManager : ICategoryManager
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly DtoMapper _DtoMapper;
 
-        public DtoManager(ICategoryRepository categoryRepository,
+        public CategoryManager(ICategoryRepository categoryRepository,
                                DtoMapper categoriesMapper)
         {
             _categoryRepository = categoryRepository;
             _DtoMapper = categoriesMapper;
         }
 
-        public IEnumerable<CategoryDto> GetAllCategory()
+        public IEnumerable<CategoryDto> GetAllCategories()
         {
             var categoryEntities = _categoryRepository.GetAllCategories();
 

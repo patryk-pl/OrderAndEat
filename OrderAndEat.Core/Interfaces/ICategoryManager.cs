@@ -4,9 +4,9 @@ using System.Text;
 
 namespace OrderAndEat.Core
 {
-    public interface IDtoManager
+    public interface ICategoryManager
     {
-        IEnumerable<CategoryDto> GetAllCategory();
+        IEnumerable<CategoryDto> GetAllCategories();
 
     }
 }

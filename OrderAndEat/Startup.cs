@@ -38,7 +38,7 @@ namespace OrderAndEat
 
             services.AddTransient<DtoMapper>();
             services.AddTransient<ViewModelMapper>();
-            services.AddTransient<IDtoManager, DtoManager>();
+            services.AddTransient<ICategoryManager, CategoryManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
