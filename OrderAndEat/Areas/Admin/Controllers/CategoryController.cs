@@ -25,7 +25,29 @@ namespace OrderAndEat
             var categoryDto = _categoryManager.GetAllCategories();
 
             var viewModel = _viewModelMapper.Map(categoryDto);
-            return View(viewModel.ToList());
+            return View(viewModel);
+        }
+
+        //GET - Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //POST - Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CategoryViewModel categoryVm)
+        {
+            if (ModelState.IsValid)
+            {
+                var dto = _viewModelMapper.Map(categoryVm);
+
+                _categoryManager.AddNewCategory(dto, CategoryId);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(categoryVm);
         }
     }
 }

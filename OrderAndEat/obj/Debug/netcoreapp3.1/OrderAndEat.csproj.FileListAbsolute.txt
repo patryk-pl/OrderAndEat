@@ -430,3 +430,6 @@ C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\OrderAndEat.MvcAppl
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\OrderAndEat.MvcApplicationPartsAssemblyInfo.cache
 C:\CSharpApp\OrderAndEat\OrderAndEat\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CreateButtonPartial.cshtml.g.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CreateAndBackToListButton.cshtml.g.cs
