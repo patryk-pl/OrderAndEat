@@ -17,7 +17,8 @@ namespace OrderAndEat.Database
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return DbSet.Select(x => x);
+            return DbSet;
+                //.Select(x => x);
         }
 
         public bool AddNew(Category category)

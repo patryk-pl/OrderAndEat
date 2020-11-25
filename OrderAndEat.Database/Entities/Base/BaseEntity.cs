@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace OrderAndEat.Core
+namespace OrderAndEat.Database
 {
-    public class CategoryDto
+    public class BaseEntity
     {
+        [Key]
         public int Id { get; set; }
-
-        public string Name { get; set; }
     }
 }
