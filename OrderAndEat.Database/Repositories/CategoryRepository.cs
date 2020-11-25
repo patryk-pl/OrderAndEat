@@ -21,11 +21,29 @@ namespace OrderAndEat.Database
                 //.Select(x => x);
         }
 
+        public Category GetItemFromTable(int? id)
+        {
+            return DbSet.FirstOrDefault(x => x.Id == id);
+        }
+
         public bool AddNew(Category category)
         {
             DbSet.Add(category);
 
             return SaveChanges();
+        }
+
+        public bool Edit(Category category)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == category.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = category.Name;
+//                DbSet.Update(category);
+
+                return SaveChanges();
+            }
+            return false;
         }
 
         public bool Delete(Category category)

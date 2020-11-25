@@ -22,9 +22,9 @@ namespace OrderAndEat
         //GET - Index
         public IActionResult Index()
         {
-            var categoryDto = _categoryManager.GetAllCategories();
+            var categoriesDto = _categoryManager.GetAllCategories();
 
-            var viewModel = _viewModelMapper.Map(categoryDto);
+            var viewModel = _viewModelMapper.Map(categoriesDto);
             return View(viewModel);
         }
 
@@ -47,6 +47,38 @@ namespace OrderAndEat
 
                 return RedirectToAction(nameof(Index));
             }
+            return View(categoryVm);
+        }
+
+        //GET - Edit
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var categoryDto = _categoryManager.GetCategory(id);
+            var viewModel = _viewModelMapper.Map(categoryDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+        }
+
+        //POST - Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(CategoryViewModel categoryVm)
+        {
+            if (ModelState.IsValid)
+            {
+                var dto = _viewModelMapper.Map(categoryVm);
+                _categoryManager.EditCategory(dto);
+
+                return RedirectToAction(nameof(Index));
+            }
+
             return View(categoryVm);
         }
     }

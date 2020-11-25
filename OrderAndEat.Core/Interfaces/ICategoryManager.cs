@@ -8,5 +8,7 @@ namespace OrderAndEat.Core
     {
         IEnumerable<CategoryDto> GetAllCategories();
         bool AddNewCategory(CategoryDto categoryDto);
+        CategoryDto GetCategory(int? id);
+        bool EditCategory(CategoryDto categoryDto);
     }
 }

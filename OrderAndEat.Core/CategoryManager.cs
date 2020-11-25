@@ -12,10 +12,10 @@ namespace OrderAndEat.Core
         private readonly DtoMapper _DtoMapper;
 
         public CategoryManager(ICategoryRepository categoryRepository,
-                               DtoMapper categoriesMapper)
+                               DtoMapper dtoMapper)
         {
             _categoryRepository = categoryRepository;
-            _DtoMapper = categoriesMapper;
+            _DtoMapper = dtoMapper;
         }
 
         public IEnumerable<CategoryDto> GetAllCategories()
@@ -25,12 +25,25 @@ namespace OrderAndEat.Core
             return _DtoMapper.Map(categoryEntities);
         }
 
+        public CategoryDto GetCategory(int? id)
+        {
+            var categoryEntity = _categoryRepository.GetItemFromTable(id);
+
+            return _DtoMapper.Map(categoryEntity);
+        }
+
         public bool AddNewCategory(CategoryDto categoryDto)
         {
             var entity = _DtoMapper.Map(categoryDto);
 
             return _categoryRepository.AddNew(entity);
             
+        }
+
+        public bool EditCategory(CategoryDto categoryDto)
+        {
+            var entity = _DtoMapper.Map(categoryDto);
+            return _categoryRepository.Edit(entity);
         }
 
     }
