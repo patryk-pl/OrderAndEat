@@ -10,5 +10,6 @@ namespace OrderAndEat.Core
         bool AddNewCategory(CategoryDto categoryDto);
         CategoryDto GetCategory(int? id);
         bool EditCategory(CategoryDto categoryDto);
+        bool DeleteCategory(CategoryDto categoryDto);
     }
 }

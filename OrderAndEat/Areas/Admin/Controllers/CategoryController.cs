@@ -81,5 +81,54 @@ namespace OrderAndEat
 
             return View(categoryVm);
         }
+
+        //GET - Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var categoryDto = _categoryManager.GetCategory(id);
+            var viewModel = _viewModelMapper.Map(categoryDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+        }
+
+        //POST - Delete
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            _categoryManager.DeleteCategory(new CategoryDto { Id = (int)id });
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        //GET - Details
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var categoryDto = _categoryManager.GetCategory(id);
+            var viewModel = _viewModelMapper.Map(categoryDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+
+        }
     }
 }

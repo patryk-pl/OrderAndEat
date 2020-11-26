@@ -39,7 +39,6 @@ namespace OrderAndEat.Database
             if (foundEntity != null)
             {
                 foundEntity.Name = category.Name;
-//                DbSet.Update(category);
 
                 return SaveChanges();
             }
