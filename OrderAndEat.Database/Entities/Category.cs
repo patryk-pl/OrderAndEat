@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace OrderAndEat.Database
@@ -10,5 +11,8 @@ namespace OrderAndEat.Database
         
         [Required]
         public string Name { get; set; }
+
+        [NotMapped]
+        public virtual List<SubCategory> SubCategories { get; set; }
     }
 }
