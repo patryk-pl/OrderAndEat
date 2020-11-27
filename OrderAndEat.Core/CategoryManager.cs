@@ -9,32 +9,32 @@ namespace OrderAndEat.Core
     public class CategoryManager : ICategoryManager
     {
         private readonly ICategoryRepository _categoryRepository;
-        private readonly DtoMapper _DtoMapper;
+        private readonly DtoMapper _dtoMapper;
 
         public CategoryManager(ICategoryRepository categoryRepository,
                                DtoMapper dtoMapper)
         {
             _categoryRepository = categoryRepository;
-            _DtoMapper = dtoMapper;
+            _dtoMapper = dtoMapper;
         }
 
         public IEnumerable<CategoryDto> GetAllCategories()
         {
             var categoryEntities = _categoryRepository.GetAllCategories();
 
-            return _DtoMapper.Map(categoryEntities);
+            return _dtoMapper.Map(categoryEntities);
         }
 
         public CategoryDto GetCategory(int? id)
         {
             var categoryEntity = _categoryRepository.GetItemFromTable(id);
 
-            return _DtoMapper.Map(categoryEntity);
+            return _dtoMapper.Map(categoryEntity);
         }
 
         public bool AddNewCategory(CategoryDto categoryDto)
         {
-            var entity = _DtoMapper.Map(categoryDto);
+            var entity = _dtoMapper.Map(categoryDto);
 
             return _categoryRepository.AddNew(entity);
             
@@ -42,13 +42,13 @@ namespace OrderAndEat.Core
 
         public bool EditCategory(CategoryDto categoryDto)
         {
-            var entity = _DtoMapper.Map(categoryDto);
+            var entity = _dtoMapper.Map(categoryDto);
             return _categoryRepository.Edit(entity);
         }
 
         public bool DeleteCategory(CategoryDto categoryDto)
         {
-            var entity = _DtoMapper.Map(categoryDto);
+            var entity = _dtoMapper.Map(categoryDto);
             return _categoryRepository.Delete(entity);
         }
 

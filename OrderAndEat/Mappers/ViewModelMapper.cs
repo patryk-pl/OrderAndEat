@@ -17,6 +17,8 @@ namespace OrderAndEat
             {
                 config.CreateMap<CategoryDto, CategoryViewModel>()
                       .ReverseMap();
+                config.CreateMap<SubCategoryDto, SubCategoryViewModel>()
+                      .ReverseMap();
             }).CreateMapper();
         }
 
@@ -32,6 +34,19 @@ namespace OrderAndEat
 
         public IEnumerable<CategoryDto> Map(IEnumerable<CategoryViewModel> categories)
             => _mapper.Map<IEnumerable<CategoryDto>>(categories);
+        #endregion
+
+        #region SubCategory Maps
+        public SubCategoryViewModel Map(SubCategoryDto subCategory)
+            => _mapper.Map<SubCategoryViewModel>(subCategory);
+
+        public IEnumerable<SubCategoryViewModel> Map(IEnumerable<SubCategoryDto> subCategories)
+            => _mapper.Map<IEnumerable<SubCategoryViewModel>>(subCategories);
+
+        public SubCategoryDto Map(SubCategoryViewModel subCategory)
+            => _mapper.Map<SubCategoryDto>(subCategory);
+        public IEnumerable<SubCategoryDto> Map(IEnumerable<SubCategoryViewModel> subCategories)
+            => _mapper.Map<IEnumerable<SubCategoryDto>>(subCategories);
         #endregion
     }
 }

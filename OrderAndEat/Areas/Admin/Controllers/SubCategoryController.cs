@@ -10,7 +10,7 @@ namespace OrderAndEat
     [Area("Admin")]
     public class SubCategoryController : Controller
     {
-        //private readonly ISubCategoryManager _subCategoryManager;
+        private readonly ISubCategoryManager _subCategoryManager;
         private readonly ViewModelMapper _viewModelMapper;
 
         public SubCategoryController(/*ISubCategoryManager subCategoryManager,*/ ViewModelMapper viewModelMapper)
@@ -22,6 +22,9 @@ namespace OrderAndEat
         //GET - Index
         public IActionResult Index()
         {
+            var subCategoryDto = _subCategoryManager.GetAllSubCategories();
+
+            var viewModel = _viewModelMapper.Map(subCategoryDto);
             return View();
         }
     }
