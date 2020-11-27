@@ -34,11 +34,13 @@ namespace OrderAndEat
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ISubCategoryRepository, SubCategoryRepository>();
 
 
             services.AddTransient<DtoMapper>();
             services.AddTransient<ViewModelMapper>();
             services.AddTransient<ICategoryManager, CategoryManager>();
+            services.AddTransient<ISubCategoryManager, SubCategoryManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

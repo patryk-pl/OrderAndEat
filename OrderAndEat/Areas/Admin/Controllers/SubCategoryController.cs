@@ -13,9 +13,9 @@ namespace OrderAndEat
         private readonly ISubCategoryManager _subCategoryManager;
         private readonly ViewModelMapper _viewModelMapper;
 
-        public SubCategoryController(/*ISubCategoryManager subCategoryManager,*/ ViewModelMapper viewModelMapper)
+        public SubCategoryController(ISubCategoryManager subCategoryManager, ViewModelMapper viewModelMapper)
         {
-            //_subCategoryManager = subCategoryManager;
+            _subCategoryManager = subCategoryManager;
             _viewModelMapper = viewModelMapper;
         }
 
@@ -25,7 +25,7 @@ namespace OrderAndEat
             var subCategoryDto = _subCategoryManager.GetAllSubCategories();
 
             var viewModel = _viewModelMapper.Map(subCategoryDto);
-            return View();
+            return View(viewModel);
         }
     }
 }

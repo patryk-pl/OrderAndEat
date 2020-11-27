@@ -440,3 +440,4 @@ C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\V
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DeleteAndBackToListButton.cshtml.g.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Details.cshtml.g.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_UpdateAndBackToListButton.cshtml.g.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Index.cshtml.g.cs

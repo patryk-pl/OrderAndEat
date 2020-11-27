@@ -16,8 +16,7 @@ namespace OrderAndEat.Database {
 
         public IEnumerable<SubCategory> GetAllSubCategories()
         {
-            return DbSet;
-                //.Select(x => x);
+            return DbSet.Include(x=>x.Category).Select(x => x);
         }
         public bool AddNew(SubCategory subCategory)
         {

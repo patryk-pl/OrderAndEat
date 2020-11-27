@@ -12,6 +12,10 @@ namespace OrderAndEat
 
         [Display(Name = "SubCategory Name")]
         public string Name { get; set; }
+
+        // maybe not necessary
+        public int CategoryId { get; set; }
+
         public CategoryViewModel Category { get; set; }
     }
 }
