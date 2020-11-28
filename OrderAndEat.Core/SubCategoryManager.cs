@@ -22,5 +22,12 @@ namespace OrderAndEat.Core
 
             return _dtoMapper.Map(subCategoryEntities);
         }
+
+        public bool AddNewSubCategory(SubCategoryDto subCategoryDto)
+        {
+            var entity = _dtoMapper.Map(subCategoryDto);
+
+            return _subCategoryRepository.AddNew(entity);
+        }
     }
 }
