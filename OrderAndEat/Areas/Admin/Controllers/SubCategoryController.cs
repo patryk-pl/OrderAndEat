@@ -41,9 +41,44 @@ namespace OrderAndEat
                 CategoryList = _viewModelMapper.Map(categoryDto),
                 SubCategory = new SubCategoryViewModel(),
                 SubCategoryList = _viewModelMapper.Map(subCategoryDto).OrderBy(p => p.Name).ToList()
-        };
+            };
 
             return View(viewModel);
+        }
+
+        //POST - CREATE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(SubCategoryAndCategoryViewModel vMmodel)
+        {
+            
+
+            if (ModelState.IsValid)
+            {
+                var subCategoryDto = _viewModelMapper.Map(vMmodel.SubCategory);
+                var doesSubCategoryExists = _subCategoryManager.SubCategoryExist(subCategoryDto);
+
+                if (doesSubCategoryExists)
+                {
+                    //Error
+                }
+                else
+                {
+                    _subCategoryManager.AddNewSubCategory(subCategoryDto);
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            var categoriesDtos = _categoryManager.GetAllCategories();
+            var subCategoryDto = _subCategoryManager.GetAllSubCategories();
+            SubCategoryAndCategoryViewModel modelVm = new SubCategoryAndCategoryViewModel()
+            {
+                CategoryList = _viewModelMapper.Map(categoriesDtos),
+                SubCategory = modelVm.SubCategory,
+                SubCategoryList = 
+
+
+            }
+            return View(vMmodel);
         }
     }
 }
