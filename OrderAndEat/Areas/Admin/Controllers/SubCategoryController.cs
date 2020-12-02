@@ -134,7 +134,7 @@ namespace OrderAndEat
                 }
                 else
                 {
-                    _subCategoryManager.AddNewSubCategory(subCategoryDto);
+                    _subCategoryManager.EditSubCategory(subCategoryDto);
                     return RedirectToAction(nameof(Index));
                 }
             }

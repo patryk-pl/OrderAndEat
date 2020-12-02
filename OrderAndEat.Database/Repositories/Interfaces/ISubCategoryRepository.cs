@@ -10,6 +10,7 @@ namespace OrderAndEat.Database
         SubCategory GetItemFromTable(int? id);
         bool SubCategoryExist(SubCategory subCategory);
         bool AddNew(SubCategory subCategory);
+        bool Edit(SubCategory subCategory);
         bool Delete(SubCategory subCategory);
     }
 }

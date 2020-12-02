@@ -39,6 +39,18 @@ namespace OrderAndEat.Database
 
             return SaveChanges();
         }
+
+        public bool Edit(SubCategory subCategory)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = subCategory.Name;
+
+                return SaveChanges();
+            }
+            return false;
+        }
         public bool Delete(SubCategory subCategory)
         {
             var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);

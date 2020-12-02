@@ -12,5 +12,6 @@ namespace OrderAndEat.Core
         bool SubCategoryExist(SubCategoryDto subCategory);
         IEnumerable<SubCategoryDto> GetSubCategories(int id);
         bool AddNewSubCategory(SubCategoryDto subCategoryDto);
+        bool EditSubCategory(SubCategoryDto subCategoryDto);
     }
 }
