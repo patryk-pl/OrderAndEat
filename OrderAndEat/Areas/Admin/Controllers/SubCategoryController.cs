@@ -14,6 +14,9 @@ namespace OrderAndEat
         private readonly ICategoryManager _categoryManager;
         private readonly ViewModelMapper _viewModelMapper;
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         public SubCategoryController(ISubCategoryManager subCategoryManager, ICategoryManager categoryManager, ViewModelMapper viewModelMapper)
         {
             _subCategoryManager = subCategoryManager;
@@ -51,16 +54,15 @@ namespace OrderAndEat
         [ValidateAntiForgeryToken]
         public IActionResult Create(SubCategoryAndCategoryViewModel vMmodel)
         {
-            
+            var subCategoryDto = _viewModelMapper.Map(vMmodel.SubCategory);
 
             if (ModelState.IsValid)
             {
-                var subCategoryDto = _viewModelMapper.Map(vMmodel.SubCategory);
                 var doesSubCategoryExists = _subCategoryManager.SubCategoryExist(subCategoryDto);
 
                 if (doesSubCategoryExists)
                 {
-                    //Error
+                    StatusMessage = "Error : Sub Category exists under " + subCategoryDto.Category.Name + "category. Please use another name";
                 }
                 else
                 {
@@ -69,16 +71,17 @@ namespace OrderAndEat
                 }
             }
             var categoriesDtos = _categoryManager.GetAllCategories();
-            var subCategoryDto = _subCategoryManager.GetAllSubCategories();
+            var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
             SubCategoryAndCategoryViewModel modelVm = new SubCategoryAndCategoryViewModel()
             {
                 CategoryList = _viewModelMapper.Map(categoriesDtos),
-                SubCategory = modelVm.SubCategory,
-                SubCategoryList = 
+                SubCategory = vMmodel.SubCategory,
+                SubCategoryList = _viewModelMapper.Map(subCategoriesDto),
+                StatusMessage = StatusMessage
 
 
-            }
-            return View(vMmodel);
+            };
+            return View(modelVm);
         }
     }
 }
