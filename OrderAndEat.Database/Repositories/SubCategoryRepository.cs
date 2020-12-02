@@ -29,6 +29,10 @@ namespace OrderAndEat.Database
             return false;
 
         }
+        public SubCategory GetItemFromTable(int? id)
+        {
+            return DbSet.FirstOrDefault(x => x.Id == id);
+        }
         public bool AddNew(SubCategory subCategory)
         {
             DbSet.Add(subCategory);

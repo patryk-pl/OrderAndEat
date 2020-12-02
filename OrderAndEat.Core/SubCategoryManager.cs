@@ -24,6 +24,13 @@ namespace OrderAndEat.Core
             return _dtoMapper.Map(subCategoryEntities);
         }
 
+        public SubCategoryDto GetSubCategory(int? id)
+        {
+            var subCategoryEntity = _subCategoryRepository.GetItemFromTable(id);
+
+            return _dtoMapper.Map(subCategoryEntity);
+        }
+
         public bool SubCategoryExist(SubCategoryDto subCategoryDto)
         {
             var subCategoryEntity = _dtoMapper.Map(subCategoryDto);
