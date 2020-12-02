@@ -13,12 +13,10 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
                 <div class="col-3">
-                    @*<label asp-for="SubCategory.CategoryId" class="col-form-label"></label>*@
-                    <label asp-for="SubCategory.Category" class="col-form-label"></label>
+                    <label asp-for="SubCategory.CategoryId" class="col-form-label"></label>
                 </div>
                 <div class="col-5">
-                    @*<select id="ddlCategoryList" asp-for="SubCategory.CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.CategoryId)" class="form-control"></select>*@
-                    <select id="ddlCategoryList" asp-for="SubCategory.Category" asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.Category)" class="form-control"></select>
+                    <select id="ddlCategoryList" asp-for="SubCategory.CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.CategoryId)" class="form-control"></select>
                 </div>
             </div>
             <div class="form-group row">

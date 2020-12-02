@@ -55,6 +55,8 @@ namespace OrderAndEat
         public IActionResult Create(SubCategoryAndCategoryViewModel vMmodel)
         {
             var subCategoryDto = _viewModelMapper.Map(vMmodel.SubCategory);
+            var categoriesDtos = _categoryManager.GetAllCategories();
+            var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
 
             if (ModelState.IsValid)
             {
@@ -62,7 +64,7 @@ namespace OrderAndEat
 
                 if (doesSubCategoryExists)
                 {
-                    StatusMessage = "Error : Sub Category exists under " + subCategoryDto.Category.Name + "category. Please use another name";
+                    StatusMessage = "Error : Sub Category exists under " + categoriesDtos.Where(x=>x.Id == subCategoryDto.CategoryId).FirstOrDefault().Name + "category. Please use another name";
                 }
                 else
                 {
@@ -70,8 +72,6 @@ namespace OrderAndEat
                     return RedirectToAction(nameof(Index));
                 }
             }
-            var categoriesDtos = _categoryManager.GetAllCategories();
-            var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
             SubCategoryAndCategoryViewModel modelVm = new SubCategoryAndCategoryViewModel()
             {
                 CategoryList = _viewModelMapper.Map(categoriesDtos),

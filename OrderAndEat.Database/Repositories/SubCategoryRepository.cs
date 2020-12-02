@@ -19,13 +19,14 @@ namespace OrderAndEat.Database
         {
             return DbSet.Include(x => x.Category).Select(x => x);
         }
+
         public bool SubCategoryExist(SubCategory subCategory)
         {
-             if ((DbSet.Include(s => s.Category).Where(s => s.Name == subCategory.Name && s.Category.Id == subCategory.Id).Count() > 0))
+             if ((DbSet.Include(s => s.Category).Where(s => s.Name == subCategory.Name && s.Category.Id == subCategory.CategoryId).Count() > 0))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
 
         }
         public bool AddNew(SubCategory subCategory)
