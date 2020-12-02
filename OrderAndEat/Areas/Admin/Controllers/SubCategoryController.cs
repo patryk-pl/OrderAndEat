@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OrderAndEat.Core;
 
 namespace OrderAndEat
@@ -82,6 +83,18 @@ namespace OrderAndEat
 
             };
             return View(modelVm);
+        }
+
+        [ActionName("GetSubCategories")]
+        public IActionResult GetSubCategories(int id)
+        {
+            var subCategories = new List<SubCategoryViewModel>();
+            var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
+
+            subCategories = (from subCategoryDto in _viewModelMapper.Map(subCategoriesDto)
+                             where subCategoryDto.CategoryId == id
+                             select subCategoryDto).ToList();
+            return Json(new SelectList(subCategories, "Id", "Name"));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using OrderAndEat.Database;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OrderAndEat.Core
@@ -28,6 +29,19 @@ namespace OrderAndEat.Core
             var subCategoryEntity = _dtoMapper.Map(subCategoryDto);
 
             return _subCategoryRepository.SubCategoryExist(subCategoryEntity);
+        }
+
+        public IEnumerable<SubCategoryDto> GetSubCategories(int id)
+        {
+            var subCategories = new List<SubCategoryDto>();
+            var subCategoriesEntity = _subCategoryRepository.GetAllSubCategories();
+
+            subCategories = (from subCategoryEntity in _dtoMapper.Map(subCategoriesEntity)
+                             where subCategoryEntity.CategoryId == id
+                             select subCategoryEntity).ToList();
+
+            
+            return subCategories;
         }
 
         public bool AddNewSubCategory(SubCategoryDto subCategoryDto)
