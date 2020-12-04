@@ -13,5 +13,6 @@ namespace OrderAndEat.Core
         IEnumerable<SubCategoryDto> GetSubCategories(int id);
         bool AddNewSubCategory(SubCategoryDto subCategoryDto);
         bool EditSubCategory(SubCategoryDto subCategoryDto);
+        bool DeleteSubCategory(SubCategoryDto subCategoryDto);
     }
 }

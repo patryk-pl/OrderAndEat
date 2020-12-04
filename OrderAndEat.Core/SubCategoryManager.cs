@@ -63,5 +63,11 @@ namespace OrderAndEat.Core
             var entity = _dtoMapper.Map(subCategoryDto);
             return _subCategoryRepository.Edit(entity);
         }
+
+        public bool DeleteSubCategory(SubCategoryDto subCategoryDto)
+        {
+            var entity = _dtoMapper.Map(subCategoryDto);
+            return _subCategoryRepository.Delete(entity);
+        }
     }
 }

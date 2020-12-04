@@ -157,8 +157,6 @@ namespace OrderAndEat
             }
 
             var subCategoryDto = _subCategoryManager.GetSubCategory(id);
-            //var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
-            //var categoriesDto = _categoryManager.GetAllCategories();
 
             var viewModel = _viewModelMapper.Map(subCategoryDto);
             if (viewModel == null)
@@ -166,6 +164,37 @@ namespace OrderAndEat
                 return NotFound();
             }
             return View(viewModel);
+        }
+
+        //GET - Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var subCategoryDto = _subCategoryManager.GetSubCategory(id);
+            var viewModel = _viewModelMapper.Map(subCategoryDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+        }
+
+        //POST - Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            _subCategoryManager.DeleteSubCategory(new SubCategoryDto { Id = (int)id });
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
