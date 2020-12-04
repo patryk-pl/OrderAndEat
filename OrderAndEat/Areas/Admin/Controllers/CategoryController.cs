@@ -99,7 +99,6 @@ namespace OrderAndEat
         }
 
         //POST - Delete
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int? id)
@@ -114,7 +113,6 @@ namespace OrderAndEat
         }
 
         //GET - Details
-
         public IActionResult Details(int? id)
         {
             if (id == null)

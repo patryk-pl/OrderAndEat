@@ -65,7 +65,7 @@ namespace OrderAndEat
 
                 if (doesSubCategoryExists)
                 {
-                    StatusMessage = "Error : Sub Category exists under " + categoriesDtos.Where(x=>x.Id == subCategoryDto.CategoryId).FirstOrDefault().Name + "category. Please use another name";
+                    StatusMessage = "Error : Sub Category exists under " + categoriesDtos.Where(x => x.Id == subCategoryDto.CategoryId).FirstOrDefault().Name + "category. Please use another name";
                 }
                 else
                 {
@@ -118,7 +118,7 @@ namespace OrderAndEat
         //POST - EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, SubCategoryAndCategoryViewModel vMmodel)
+        public IActionResult Edit(SubCategoryAndCategoryViewModel vMmodel)
         {
             var subCategoryDto = _viewModelMapper.Map(vMmodel.SubCategory);
             var categoriesDtos = _categoryManager.GetAllCategories();
@@ -144,10 +144,28 @@ namespace OrderAndEat
                 SubCategory = vMmodel.SubCategory,
                 SubCategoryList = _viewModelMapper.Map(subCategoriesDto),
                 StatusMessage = StatusMessage
-
-
             };
             return View(modelVm);
+        }
+
+        //GET - Details
+        public IActionResult Details(int? id)
+        {
+            if (id ==null)
+            {
+                return NotFound();
+            }
+
+            var subCategoryDto = _subCategoryManager.GetSubCategory(id);
+            //var subCategoriesDto = _subCategoryManager.GetAllSubCategories();
+            //var categoriesDto = _categoryManager.GetAllCategories();
+
+            var viewModel = _viewModelMapper.Map(subCategoryDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
         }
     }
 }

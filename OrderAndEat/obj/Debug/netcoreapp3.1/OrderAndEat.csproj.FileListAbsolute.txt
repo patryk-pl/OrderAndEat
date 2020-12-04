@@ -444,3 +444,4 @@ C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\V
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Create.cshtml.g.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_StatusMessage.cshtml.g.cs
 C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Edit.cshtml.g.cs
+C:\CSharpApp\OrderAndEat\OrderAndEat\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Details.cshtml.g.cs

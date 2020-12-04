@@ -1,0 +1,47 @@
+﻿@model SubCategoryViewModel
+@using OrderAndEat
+@{
+}
+<br />
+<h2 class="text-info">Sub Category Details</h2>
+<br />
+
+<div class="border backgroundWhite row">
+    <div class="col-8 border-right">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="CategoryId" />
+            <input type="hidden" asp-for="Id" />
+            @*<div class="form-group row">
+            <div class="col-3">
+                <label asp-for="CategoryId" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <select id="ddlCategoryList" asp-for="CategoryId" disabled asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.CategoryId)" class="form-control"></select>
+            </div>
+        </div>*@
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Category.Name" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Category.Name" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="Name" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Name" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-5 offset-3">
+                    <partial name="_UpdateAndBackToListButton" model="Model.Id" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
