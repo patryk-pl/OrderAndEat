@@ -8,10 +8,6 @@ namespace OrderAndEat.Database
 {
     public class Category : BaseEntity
     {
-        
-        [Required]
-        public string Name { get; set; }
-
         [NotMapped]
         public virtual List<SubCategory> SubCategories { get; set; }
     }

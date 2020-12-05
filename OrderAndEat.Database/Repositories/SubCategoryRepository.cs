@@ -29,40 +29,43 @@ namespace OrderAndEat.Database
             return false;
 
         }
+
         public SubCategory GetItemFromTable(int? id)
         {
             return DbSet.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
         }
-        public bool AddNew(SubCategory subCategory)
-        {
-            DbSet.Add(subCategory);
 
-            return SaveChanges();
-        }
+        //public bool AddNew(SubCategory subCategory)
+        //{
+        //    DbSet.Add(subCategory);
 
-        public bool Edit(SubCategory subCategory)
-        {
-            var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
-            if (foundEntity != null)
-            {
-                foundEntity.Name = subCategory.Name;
+        //    return SaveChanges();
+        //}
 
-                return SaveChanges();
-            }
-            return false;
-        }
-        public bool Delete(SubCategory subCategory)
-        {
-            var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
-            if (foundEntity != null)
-            {
-                DbSet.Remove(foundEntity);
+        //public bool Edit(SubCategory subCategory)
+        //{
+        //    var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
+        //    if (foundEntity != null)
+        //    {
+        //        foundEntity.Name = subCategory.Name;
 
-                return SaveChanges();
-            }
+        //        return SaveChanges();
+        //    }
+        //    return false;
+        //}
 
-            return false;
+        //public bool Delete(SubCategory subCategory)
+        //{
+        //    var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
+        //    if (foundEntity != null)
+        //    {
+        //        DbSet.Remove(foundEntity);
 
-        }
+        //        return SaveChanges();
+        //    }
+
+        //    return false;
+
+        //}
     }
 }

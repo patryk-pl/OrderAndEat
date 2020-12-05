@@ -8,9 +8,6 @@ namespace OrderAndEat.Database
 {
     public class SubCategory : BaseEntity
     {
-        [Required]
-        public string Name { get; set; }
-
         /// <summary>
         /// One to Many.
         /// One Category may have many SubCategories

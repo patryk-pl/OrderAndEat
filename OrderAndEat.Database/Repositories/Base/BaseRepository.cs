@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OrderAndEat.Database
@@ -28,6 +29,39 @@ namespace OrderAndEat.Database
             }
 
             return list;
+        }
+
+        public bool AddNew(Entity entity)
+        {
+            DbSet.Add(entity);
+
+            return SaveChanges();
+        }
+
+        public bool Edit(Entity entity)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == entity.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = entity.Name;
+
+                return SaveChanges();
+            }
+            return false;
+        }
+
+        public bool Delete(Entity entity)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == entity.Id);
+            if (foundEntity != null)
+            {
+                DbSet.Remove(foundEntity);
+
+                return SaveChanges();
+            }
+
+            return false;
+
         }
 
         public bool SaveChanges()

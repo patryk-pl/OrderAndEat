@@ -9,8 +9,8 @@ namespace OrderAndEat.Database
         IEnumerable<SubCategory> GetAllSubCategories();
         SubCategory GetItemFromTable(int? id);
         bool SubCategoryExist(SubCategory subCategory);
-        bool AddNew(SubCategory subCategory);
-        bool Edit(SubCategory subCategory);
-        bool Delete(SubCategory subCategory);
+        //bool AddNew(SubCategory subCategory);
+        //bool Edit(SubCategory subCategory);
+        //bool Delete(SubCategory subCategory);
     }
 }
