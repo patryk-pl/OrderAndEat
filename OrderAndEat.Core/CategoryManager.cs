@@ -1,7 +1,5 @@
 ﻿using OrderAndEat.Database;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OrderAndEat.Core
 {

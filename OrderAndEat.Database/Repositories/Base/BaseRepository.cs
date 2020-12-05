@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OrderAndEat.Database
 {
-    public abstract class BaseRepository<Entity> where Entity : BaseEntity
+    public abstract class BaseRepository<Entity> : IRepository<Entity> where Entity : BaseEntity
     {
         protected OrderAndEatDbContext _dbContext;
 
