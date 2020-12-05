@@ -23,8 +23,8 @@ namespace OrderAndEat
         public IActionResult Index()
         {
             var categoriesDto = _categoryManager.GetAllCategories();
-
             var viewModel = _viewModelMapper.Map(categoriesDto);
+
             return View(viewModel);
         }
 
