@@ -12,14 +12,28 @@ namespace OrderAndEat.Areas.Admin.Controllers
     public class MenuItemController : Controller
     {
         private readonly IMenuItemManager _menuItemManager;
+        private readonly ICategoryManager _categoryManager;
         private readonly ViewModelMapper _viewModelMapper;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public MenuItemController(IMenuItemManager menuItemManager, ViewModelMapper viewModelMapper, IWebHostEnvironment webHostEnvironment)
+        [BindProperty]
+        public MenuItemAndSubCListAndCListViewModel menuItemAndSubCListAndCListVm { get; set; }
+
+        public MenuItemController(
+            IMenuItemManager menuItemManager,
+            ICategoryManager categoryManager,
+            ViewModelMapper viewModelMapper, 
+            IWebHostEnvironment webHostEnvironment
+            )
         {
             _webHostEnvironment = webHostEnvironment;
             _viewModelMapper = viewModelMapper;
             _menuItemManager = menuItemManager;
+            _categoryManager = categoryManager;
+            menuItemAndSubCListAndCListVm = new MenuItemAndSubCListAndCListViewModel()
+            {
+                MenuItem = new MenuItemViewModel()
+            };
         }
         public IActionResult Index()
         {
@@ -27,6 +41,15 @@ namespace OrderAndEat.Areas.Admin.Controllers
 
             var viewModel = _viewModelMapper.Map(menuItemsDto);
             return View(viewModel);
+        }
+
+        //GET - CREATE
+        public IActionResult Create()
+        {
+            var categoriesList = _categoryManager.GetAllCategories();
+            menuItemAndSubCListAndCListVm.CategoriesList = _viewModelMapper.Map(categoriesList);
+
+            return View(menuItemAndSubCListAndCListVm);
         }
     }
 }

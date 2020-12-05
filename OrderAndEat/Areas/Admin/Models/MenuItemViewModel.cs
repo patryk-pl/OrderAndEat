@@ -12,17 +12,18 @@ namespace OrderAndEat
 
         [Display(Name = "Menu Item Name")]
         public string Name { get; set; }
-        public List<SubCategoryDto> SubCategories { get; set; }
         public string Description { get; set; }
         public string Spicyness { get; set; }
         public enum ESpicy { NA = 0, NotSpicy = 1, Spicy = 2, VerySpicy = 3 }
         public string Image { get; set; }
 
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
-        public virtual CategoryDto Category { get; set; }
+        public virtual CategoryViewModel Category { get; set; }
 
+        [Display(Name = "SubCategory")]
         public int SubCategoryId { get; set; }
-        public virtual SubCategoryDto SubCategory { get; set; }
+        public virtual SubCategoryViewModel SubCategory { get; set; }
 
 
         [Range(1, int.MaxValue, ErrorMessage = "Price should be grater thab ${1}")]

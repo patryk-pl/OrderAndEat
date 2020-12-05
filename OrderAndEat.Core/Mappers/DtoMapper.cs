@@ -57,7 +57,7 @@ namespace OrderAndEat.Core
         public MenuItem Map(MenuItemDto menuItemDto)
             => _mapper.Map<MenuItem>(menuItemDto);
         public IEnumerable<MenuItem> Map(IEnumerable<MenuItemDto> menuItemsDto)
-            => _mapper.Map<IEnumerable<MenuItem>>(menuItemsDto)
+            => _mapper.Map<IEnumerable<MenuItem>>(menuItemsDto);
         #endregion
     };
 }

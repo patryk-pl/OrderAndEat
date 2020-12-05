@@ -10,7 +10,6 @@ namespace OrderAndEat.Core
         public int Id { get; set; }
 
         public string Name { get; set; }
-        public List<SubCategoryDto> SubCategories { get; set; }
         public string Description { get; set; }
         public string Spicyness { get; set; }
         public enum ESpicy { NA = 0, NotSpicy = 1, Spicy = 2, VerySpicy = 3 }
