@@ -6,6 +6,6 @@ namespace OrderAndEat.Core
 {
     public interface IMenuItemManager
     {
-
+        IEnumerable<MenuItemDto> GetAllMenuItems();
     }
 }

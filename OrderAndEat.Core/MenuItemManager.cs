@@ -16,6 +16,12 @@ namespace OrderAndEat.Core
             _dtoMapper = dtoMapper;
         }
 
+        public IEnumerable<MenuItemDto> GetAllMenuItems()
+        {
+            var menuItemsEntities = _menuItemRepository.GetAllMenuItems();
+            return _dtoMapper.Map(menuItemsEntities);
+        }
+
         
 
     }

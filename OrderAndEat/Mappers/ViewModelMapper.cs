@@ -19,6 +19,8 @@ namespace OrderAndEat
                       .ReverseMap();
                 config.CreateMap<SubCategoryDto, SubCategoryViewModel>()
                       .ReverseMap();
+                config.CreateMap<MenuItemDto, MenuItemViewModel>()
+                      .ReverseMap();
             }).CreateMapper();
         }
 
@@ -29,24 +31,39 @@ namespace OrderAndEat
         public IEnumerable<CategoryViewModel> Map(IEnumerable<CategoryDto> categories)
             => _mapper.Map<IEnumerable<CategoryViewModel>>(categories);
 
-        public CategoryDto Map(CategoryViewModel category)
-            => _mapper.Map<CategoryDto>(category);
+        public CategoryDto Map(CategoryViewModel categoryVm)
+            => _mapper.Map<CategoryDto>(categoryVm);
 
-        public IEnumerable<CategoryDto> Map(IEnumerable<CategoryViewModel> categories)
-            => _mapper.Map<IEnumerable<CategoryDto>>(categories);
+        public IEnumerable<CategoryDto> Map(IEnumerable<CategoryViewModel> categoriesVm)
+            => _mapper.Map<IEnumerable<CategoryDto>>(categoriesVm);
         #endregion
 
         #region SubCategory Maps
-        public SubCategoryViewModel Map(SubCategoryDto subCategory)
-            => _mapper.Map<SubCategoryViewModel>(subCategory);
+        public SubCategoryViewModel Map(SubCategoryDto subCategoryDto)
+            => _mapper.Map<SubCategoryViewModel>(subCategoryDto);
 
-        public IEnumerable<SubCategoryViewModel> Map(IEnumerable<SubCategoryDto> subCategories)
-            => _mapper.Map<IEnumerable<SubCategoryViewModel>>(subCategories);
+        public IEnumerable<SubCategoryViewModel> Map(IEnumerable<SubCategoryDto> subCategoriesDto)
+            => _mapper.Map<IEnumerable<SubCategoryViewModel>>(subCategoriesDto);
 
-        public SubCategoryDto Map(SubCategoryViewModel subCategory)
-            => _mapper.Map<SubCategoryDto>(subCategory);
-        public IEnumerable<SubCategoryDto> Map(IEnumerable<SubCategoryViewModel> subCategories)
-            => _mapper.Map<IEnumerable<SubCategoryDto>>(subCategories);
+        public SubCategoryDto Map(SubCategoryViewModel subCategoryVm)
+            => _mapper.Map<SubCategoryDto>(subCategoryVm);
+        public IEnumerable<SubCategoryDto> Map(IEnumerable<SubCategoryViewModel> subCategoriesVm)
+            => _mapper.Map<IEnumerable<SubCategoryDto>>(subCategoriesVm);
+        #endregion
+
+        #region MenuItem Maps
+        public MenuItemViewModel Map(MenuItemDto menuItemDto)
+            => _mapper.Map<MenuItemViewModel>(menuItemDto);
+
+        public IEnumerable<MenuItemViewModel> Map(IEnumerable<MenuItemDto> menuItemsDto)
+            => _mapper.Map<IEnumerable<MenuItemViewModel>>(menuItemsDto);
+
+        public MenuItemDto Map(MenuItemViewModel menuItemVm)
+            => _mapper.Map<MenuItemDto>(menuItemVm);
+
+        public IEnumerable<MenuItemDto> Map(IEnumerable<MenuItemViewModel> menuItemsVm)
+            => _mapper.Map<IEnumerable<MenuItemDto>>(menuItemsVm);
+
         #endregion
     }
 }
