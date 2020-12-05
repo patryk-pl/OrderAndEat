@@ -16,6 +16,8 @@ namespace OrderAndEat.Core
                       .ReverseMap();
                 config.CreateMap<SubCategory, SubCategoryDto>()
                       .ReverseMap();
+                config.CreateMap<MenuItem, MenuItemDto>()
+                      .ReverseMap();
             }).CreateMapper();
         }
 
@@ -40,11 +42,22 @@ namespace OrderAndEat.Core
         public IEnumerable<SubCategoryDto> Map(IEnumerable<SubCategory> subCategories)
             => _mapper.Map<IEnumerable<SubCategoryDto>>(subCategories);
 
-        public SubCategory Map(SubCategoryDto subCategory)
-            => _mapper.Map<SubCategory>(subCategory);
+        public SubCategory Map(SubCategoryDto subCategoryDto)
+            => _mapper.Map<SubCategory>(subCategoryDto);
 
-        public IEnumerable<SubCategory> Map(IEnumerable<SubCategoryDto> subCategories)
-            => _mapper.Map<IEnumerable<SubCategory>>(subCategories);
+        public IEnumerable<SubCategory> Map(IEnumerable<SubCategoryDto> subCategoriesDto)
+            => _mapper.Map<IEnumerable<SubCategory>>(subCategoriesDto);
         #endregion
-    }
+
+        #region MenuItem Maps
+        public MenuItemDto Map(MenuItem menuItem)
+            => _mapper.Map<MenuItemDto>(menuItem);
+        public IEnumerable<MenuItemDto> Map(IEnumerable<MenuItem> menuItems)
+            => _mapper.Map<IEnumerable<MenuItemDto>>(menuItems);
+        public MenuItem Map(MenuItemDto menuItemDto)
+            => _mapper.Map<MenuItem>(menuItemDto);
+        public IEnumerable<MenuItem> Map(IEnumerable<MenuItemDto> menuItemsDto)
+            => _mapper.Map<IEnumerable<MenuItem>>(menuItemsDto)
+        #endregion
+    };
 }
