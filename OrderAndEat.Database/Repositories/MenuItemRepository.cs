@@ -19,6 +19,10 @@ namespace OrderAndEat.Database
         {
             return DbSet.Include(m => m.Category).Include(m => m.SubCategory).Select(x => x);
         }
+        public MenuItem GetItemFromTable(int? id)
+        {
+            return DbSet.Include(x => x.Category).Include(x => x.SubCategory).FirstOrDefault(x => x.Id == id);
+        }
 
     }
 }

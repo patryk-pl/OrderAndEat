@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -50,6 +51,52 @@ namespace OrderAndEat.Areas.Admin.Controllers
             menuItemAndSubCListAndCListVm.CategoriesList = _viewModelMapper.Map(categoriesList);
 
             return View(menuItemAndSubCListAndCListVm);
+        }
+
+        [HttpPost, ActionName("Create")]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreatePOST()
+        {
+            var menuItemVm = menuItemAndSubCListAndCListVm.MenuItem;
+
+            menuItemVm.SubCategoryId = Convert.ToInt32(Request.Form["SubCategoryId"].ToString());
+
+            if (!ModelState.IsValid)
+            {
+                return View(menuItemAndSubCListAndCListVm);
+            }
+
+            string webRootPath = _webHostEnvironment.WebRootPath;
+            var files = HttpContext.Request.Form.Files;
+
+            var uniqueNameOfString = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds).ToString();
+            if (files.Count > 0)
+            {
+                //files has been uploaded
+                var uploads = Path.Combine(webRootPath, "images");
+                var extension = Path.GetExtension(files[0].FileName);
+
+                using (var filesStream = new FileStream(Path.Combine(uploads, uniqueNameOfString + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(filesStream);
+                }
+                menuItemVm.Image = @"\images\" + uniqueNameOfString + extension;
+            }
+            else
+            {
+                // nofile was uploaded, so use default
+                var uploads = Path.Combine(webRootPath,@"images\" + SD.DefaultFoodImage);
+                System.IO.File.Copy(uploads, webRootPath + @"\images\" + uniqueNameOfString + ".png");
+                menuItemVm.Image = @"\images\" + uniqueNameOfString + ".png";
+            }
+
+            var menuItemDto = _viewModelMapper.Map(menuItemVm);
+            _menuItemManager.AddNewMenuItem(menuItemDto);
+            
+
+            return RedirectToAction(nameof(Index));
+
+
         }
     }
 }
