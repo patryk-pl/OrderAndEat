@@ -35,37 +35,16 @@ namespace OrderAndEat.Database
             return DbSet.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
         }
 
-        //public bool AddNew(SubCategory subCategory)
-        //{
-        //    DbSet.Add(subCategory);
+        public bool Edit(SubCategory subCategory)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = subCategory.Name;
 
-        //    return SaveChanges();
-        //}
-
-        //public bool Edit(SubCategory subCategory)
-        //{
-        //    var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
-        //    if (foundEntity != null)
-        //    {
-        //        foundEntity.Name = subCategory.Name;
-
-        //        return SaveChanges();
-        //    }
-        //    return false;
-        //}
-
-        //public bool Delete(SubCategory subCategory)
-        //{
-        //    var foundEntity = DbSet.FirstOrDefault(x => x.Id == subCategory.Id);
-        //    if (foundEntity != null)
-        //    {
-        //        DbSet.Remove(foundEntity);
-
-        //        return SaveChanges();
-        //    }
-
-        //    return false;
-
-        //}
+                return SaveChanges();
+            }
+            return false;
+        }
     }
 }

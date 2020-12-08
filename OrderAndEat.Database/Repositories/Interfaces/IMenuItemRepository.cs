@@ -8,5 +8,6 @@ namespace OrderAndEat.Database
     {
         IEnumerable<MenuItem> GetAllMenuItems();
         MenuItem GetItemFromTable(int? id);
+        bool Edit(MenuItem menuItem);
     }
 }

@@ -10,18 +10,18 @@ namespace OrderAndEat
     {
         public int Id { get; set; }
 
-        [Display(Name = "Menu Item Name")]
+        //[Display(Name = "Menu Item Name")]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Spicyness { get; set; }
         public enum ESpicy { NA = 0, NotSpicy = 1, Spicy = 2, VerySpicy = 3 }
         public string Image { get; set; }
 
-        [Display(Name = "Category")]
+        //[Display(Name = "Category")]
         public int CategoryId { get; set; }
         public virtual CategoryViewModel Category { get; set; }
 
-        [Display(Name = "SubCategory")]
+        //[Display(Name = "SubCategory")]
         public int SubCategoryId { get; set; }
         public virtual SubCategoryViewModel SubCategory { get; set; }
 

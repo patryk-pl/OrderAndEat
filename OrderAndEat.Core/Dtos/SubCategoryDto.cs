@@ -11,7 +11,6 @@ namespace OrderAndEat.Core
 
         // maybe not necessary
         public int CategoryId { get; set; }
-
-        public CategoryDto Category { get; set; }
+        public virtual CategoryDto Category { get; set; }
     }
 }

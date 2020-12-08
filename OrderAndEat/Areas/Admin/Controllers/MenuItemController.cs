@@ -50,7 +50,7 @@ namespace OrderAndEat.Areas.Admin.Controllers
             var categoriesListDto = _categoryManager.GetAllCategories();
             menuItemAndSubCListAndCListVm.CategoriesList = _viewModelMapper.Map(categoriesListDto);
             menuItemAndSubCListAndCListVm.MenuItem = new MenuItemViewModel();
-            
+
             return View(menuItemAndSubCListAndCListVm);
         }
 
@@ -119,12 +119,13 @@ namespace OrderAndEat.Areas.Admin.Controllers
         //POST - EDIT
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public IActionResult EditPOST(int? id)
+        public IActionResult EditPOST(int? id )
         {
             if (id == null)
             {
                 return NotFound();
             }
+
             var menuItemVm = menuItemAndSubCListAndCListVm.MenuItem;
 
             menuItemVm.SubCategoryId = Convert.ToInt32(Request.Form["SubCategoryId"].ToString());
@@ -137,9 +138,10 @@ namespace OrderAndEat.Areas.Admin.Controllers
             string webRootPath = _webHostEnvironment.WebRootPath;
             var files = HttpContext.Request.Form.Files;
 
-            var uniqueNameOfString = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds).ToString();
             if (files.Count > 0)
             {
+                var uniqueNameOfString = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds).ToString();
+
                 //New image has been uploaded
                 var uploads = Path.Combine(webRootPath, "images");
                 var extension_new = Path.GetExtension(files[0].FileName);
@@ -161,8 +163,8 @@ namespace OrderAndEat.Areas.Admin.Controllers
 
             var menuItemDto = _viewModelMapper.Map(menuItemVm);
 
-            // fix edit repository to edit entire menuItem Enitity instead only Name!!!!!!!! 
             _menuItemManager.EditMenuItem(menuItemDto);
+
 
             return RedirectToAction(nameof(Index));
         }

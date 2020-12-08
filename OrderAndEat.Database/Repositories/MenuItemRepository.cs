@@ -24,5 +24,23 @@ namespace OrderAndEat.Database
             return DbSet.Include(x => x.Category).Include(x => x.SubCategory).FirstOrDefault(x => x.Id == id);
         }
 
+        public bool Edit(MenuItem menuItem)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == menuItem.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = menuItem.Name;
+                foundEntity.Description = menuItem.Description;
+                foundEntity.Spicyness = menuItem.Spicyness;
+                foundEntity.Image = menuItem.Image;
+                foundEntity.CategoryId = menuItem.CategoryId;
+                foundEntity.SubCategoryId = menuItem.SubCategoryId;
+                foundEntity.Price = foundEntity.Price;
+
+                return SaveChanges();
+            }
+            return false;
+        }
+
     }
 }

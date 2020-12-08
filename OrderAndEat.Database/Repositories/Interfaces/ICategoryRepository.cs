@@ -8,8 +8,8 @@ namespace OrderAndEat.Database
     {
         IEnumerable<Category> GetAllCategories();
         Category GetItemFromTable(int? id);
+        bool Edit(Category category);
         //bool AddNew(Category category);
-        //bool Edit(Category category);
         //bool Delete(Category category);
 
     }

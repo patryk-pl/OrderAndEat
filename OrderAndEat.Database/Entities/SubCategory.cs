@@ -12,9 +12,9 @@ namespace OrderAndEat.Database
         /// One to Many.
         /// One Category may have many SubCategories
         /// </summary>
+        
         [Required]
         public int CategoryId { get; set; }
-
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
     }
