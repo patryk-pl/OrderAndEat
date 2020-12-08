@@ -9,7 +9,6 @@
     <div class="border backgroundWhite row">
         <input type="hidden" asp-for="MenuItem.Id" />
         <input type="hidden" asp-for="MenuItem.Image" />
-        <input type="hidden" id="subCatId" asp-for="MenuItem.SubCategory.Id" />
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -57,20 +56,12 @@
                     <select asp-for="MenuItem.CategoryId" id="CategoryId" asp-items="Model.CategoriesList.ToSelectListItem(Model.MenuItem.CategoryId)" class="form-control"></select>
                 </div>
             </div>
-            @*<div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="MenuItem.SubCategory.Name" class="col-form-label"></label>
-                </div>
-                <div class="col-8">
-                    <input type="text" asp-for="MenuItem.SubCategory.Name"class="col-form-label">
-                </div>
-            </div>*@
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="MenuItem.SubCategoryId" class="col-form-label"></label>
                 </div>
                 <div class="col-8">
-                    <select asp-for="@Model.MenuItem.SubCategoryId" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty,"Id","Name"))" class="form-control"></select>
+                    <select asp-for="MenuItem.SubCategoryId" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty, "Id", "Name"))" class="form-control"></select>
                 </div>
             </div>
             <div class="form-group row">
@@ -100,7 +91,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
             getSubCategories();
-            $('#SubCategoryId').val()
             $('#CategoryId').change(function () {
                 getSubCategories();
             });
@@ -109,18 +99,11 @@
         function getSubCategories() {
             var url = '@Url.Content("~/")' + "Admin/SubCategory/GetSubCategories";
             var ddlsource = '#CategoryId';
-            var subCatId = document.getElementById("subCatId").value;
             $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
                 var items = '';
                 $('#SubCategoryId').empty();
                 $.each(data, function (i, subcategory) {
-
-                    if (subCatId == subcategory.value) {
-                        items += "<option selected value='" + subcategory.value + "'>" + subcategory.text + "</option>"
-                    } else {
-
                     items += "<option value='" + subcategory.value + "'>" + subcategory.text + "</option>"
-                    }
                 });
                 $('#SubCategoryId').html(items);
             })
