@@ -36,6 +36,7 @@ namespace OrderAndEat
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ISubCategoryRepository, SubCategoryRepository>();
             services.AddTransient<IMenuItemRepository, MenuItemRepository>();
+            services.AddTransient<ICouponRepository, CouponRepository>();
 
 
             services.AddTransient<DtoMapper>();
