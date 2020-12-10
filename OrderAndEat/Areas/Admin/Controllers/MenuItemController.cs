@@ -168,5 +168,55 @@ namespace OrderAndEat.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        //GET - DETAILS
+        public IActionResult Details(int? id)
+        {
+            if (id==null)
+            {
+                return NotFound();
+            }
+            var menuItemDto = _menuItemManager.GetMenuItem(id);
+            var subCategoryDto = _subCategoryManager.GetSubCategories(menuItemDto.CategoryId);
+            var categoriesListDto = _categoryManager.GetAllCategories();
+
+            menuItemAndSubCListAndCListVm.MenuItem = _viewModelMapper.Map(menuItemDto);
+            menuItemAndSubCListAndCListVm.SubCategoriesList = _viewModelMapper.Map(subCategoryDto);
+            menuItemAndSubCListAndCListVm.CategoriesList = _viewModelMapper.Map(categoriesListDto);
+
+            return View(menuItemAndSubCListAndCListVm);
+        }
+
+        // GET - DETELE
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var menuItemDto = _menuItemManager.GetMenuItem(id);
+            var subCategoryDto = _subCategoryManager.GetSubCategories(menuItemDto.CategoryId);
+            var categoriesListDto = _categoryManager.GetAllCategories();
+
+            menuItemAndSubCListAndCListVm.MenuItem = _viewModelMapper.Map(menuItemDto);
+            menuItemAndSubCListAndCListVm.SubCategoriesList = _viewModelMapper.Map(subCategoryDto);
+            menuItemAndSubCListAndCListVm.CategoriesList = _viewModelMapper.Map(categoriesListDto);
+
+            return View(menuItemAndSubCListAndCListVm);
+        }
+
+        //POST - DELETE
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePOST(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            _menuItemManager.DeleteMenuItem(new MenuItemDto { Id = (int)id});
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

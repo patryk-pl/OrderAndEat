@@ -57,14 +57,6 @@
                     <select asp-for="MenuItem.CategoryId" id="CategoryId" asp-items="Model.CategoriesList.ToSelectListItem(Model.MenuItem.CategoryId)" class="form-control"></select>
                 </div>
             </div>
-            @*<div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="MenuItem.SubCategory.Name" class="col-form-label"></label>
-                </div>
-                <div class="col-8">
-                    <input type="text" asp-for="MenuItem.SubCategory.Name"class="col-form-label">
-                </div>
-            </div>*@
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="MenuItem.SubCategoryId" class="col-form-label"></label>

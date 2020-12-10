@@ -9,6 +9,7 @@ namespace OrderAndEat.Core
         IEnumerable<MenuItemDto> GetAllMenuItems();
         bool AddNewMenuItem(MenuItemDto menuItemDto);
         bool EditMenuItem(MenuItemDto menuItemDto);
+        bool DeleteMenuItem(MenuItemDto menuItemDto);
         MenuItemDto GetMenuItem(int? id);
     }
 }

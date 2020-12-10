@@ -5,7 +5,7 @@
 <h2 class="text-info">Edit Menu Item</h2>
 <br />
 
-<form>
+<form method="post" enctype="multipart/form-data">
     <div class="border backgroundWhite row">
         <input type="hidden" asp-for="MenuItem.Id" />
         <input type="hidden" asp-for="MenuItem.Image" />
@@ -69,7 +69,7 @@
 
         <div class="col-8">
             <div class="col-8 offset-4">
-                <partial name="_UpdateAndBackToListButton" model="Model.MenuItem.Id" />
+                <partial name="_DeleteAndBackToListButton" model="Model.MenuItem.Id" />
 
             </div>
         </div>

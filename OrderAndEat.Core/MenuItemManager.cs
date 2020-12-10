@@ -41,6 +41,12 @@ namespace OrderAndEat.Core
             return _dtoMapper.Map(menuItemEntity);
         }
 
+        public bool DeleteMenuItem(MenuItemDto menuItemDto)
+        {
+            var entiy = _dtoMapper.Map(menuItemDto);
+            return _menuItemRepository.Delete(entiy);
+        }
+
 
 
     }
