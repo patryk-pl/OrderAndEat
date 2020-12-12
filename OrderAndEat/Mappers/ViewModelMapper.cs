@@ -71,8 +71,12 @@ namespace OrderAndEat
         #region Coupon Maps
         public CouponViewModel Map(CouponDto couponDto)
             => _mapper.Map<CouponViewModel>(couponDto);
-        public CouponDto Map(CouponViewModel coupon)
-            => _mapper.Map<CouponDto>(coupon);
+        public IEnumerable<CouponViewModel> Map(IEnumerable<CouponDto> CouponsDto)
+            => _mapper.Map<IEnumerable<CouponViewModel>>(CouponsDto);
+        public CouponDto Map(CouponViewModel couponVm)
+            => _mapper.Map<CouponDto>(couponVm);
+        public IEnumerable<CouponDto> Map(IEnumerable<CouponViewModel> CouponsVm)
+    => _mapper.Map<IEnumerable<CouponDto>>(CouponsVm);
         #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OrderAndEat.Database
@@ -12,6 +13,10 @@ namespace OrderAndEat.Database
         public CouponRepository(OrderAndEatDbContext dbContext) : base(dbContext)
         {
 
+        }
+        public IEnumerable<Coupon> GetAllCoupons()
+        {
+            return DbSet.Select(x=>x);
         }
 
     }
