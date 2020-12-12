@@ -21,6 +21,8 @@ namespace OrderAndEat
                       .ReverseMap();
                 config.CreateMap<MenuItemDto, MenuItemViewModel>()
                       .ReverseMap();
+                config.CreateMap<CouponDto, CouponViewModel>()
+                     .ReverseMap();
             }).CreateMapper();
         }
 
@@ -64,6 +66,13 @@ namespace OrderAndEat
         public IEnumerable<MenuItemDto> Map(IEnumerable<MenuItemViewModel> menuItemsVm)
             => _mapper.Map<IEnumerable<MenuItemDto>>(menuItemsVm);
 
+        #endregion
+
+        #region Coupon Maps
+        public CouponViewModel Map(CouponDto couponDto)
+            => _mapper.Map<CouponViewModel>(couponDto);
+        public CouponDto Map(CouponViewModel coupon)
+            => _mapper.Map<CouponDto>(coupon);
         #endregion
     }
 }
