@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,8 @@ namespace OrderAndEat
             _couponManager = couponManager;
             _viewModelMapper = viewModelMapper;
         }
+
+        //GET - Index
         public IActionResult Index()
         {
             var couponDto = _couponManager.GetAllCoupons();
@@ -24,9 +27,39 @@ namespace OrderAndEat
             return View(viewModel);
         }
 
+        //GET - Create
         public IActionResult Create()
         {
             return View();
+        }
+
+        //POST - Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CouponViewModel couponVm)
+        {
+            if (ModelState.IsValid)
+            {
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count>0)
+                {
+                    byte[] p1 = null;
+                    using (var fs1 = files[0].OpenReadStream())
+                    {
+                        using (var ms1 = new MemoryStream())
+                        {
+                            fs1.CopyTo(ms1);
+                            p1 = ms1.ToArray();
+                        }
+                    }
+                    couponVm.Picture = p1;
+                }
+                var dto = _viewModelMapper.Map(couponVm);
+                _couponManager.AddNewCoupon(dto);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(couponVm);
         }
     }
 }

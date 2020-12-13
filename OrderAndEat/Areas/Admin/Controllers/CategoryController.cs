@@ -43,7 +43,6 @@ namespace OrderAndEat
             {
                 var dto = _viewModelMapper.Map(categoryVm);
                 _categoryManager.AddNewCategory(dto);
-                //_categoryManager.AddNewCategory(dto, CategoryId);
 
                 return RedirectToAction(nameof(Index));
             }

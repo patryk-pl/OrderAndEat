@@ -16,11 +16,18 @@ namespace OrderAndEat.Core
             _dtoMapper = dtoMapper;
         }
 
+
         public IEnumerable<CouponDto> GetAllCoupons()
         {
             var couponEntities = _couponRepository.GetAllCoupons();
 
             return _dtoMapper.Map(couponEntities);
+        }
+        public bool AddNewCoupon(CouponDto couponDto)
+        {
+            var entity = _dtoMapper.Map(couponDto);
+
+            return _couponRepository.AddNew(entity);
         }
 
 

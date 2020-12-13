@@ -7,5 +7,6 @@ namespace OrderAndEat.Core
     public interface ICouponManager
     {
         IEnumerable<CouponDto> GetAllCoupons();
+        bool AddNewCoupon(CouponDto couponDto);
     }
 }
