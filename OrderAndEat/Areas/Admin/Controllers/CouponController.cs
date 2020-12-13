@@ -23,5 +23,10 @@ namespace OrderAndEat
             var viewModel = _viewModelMapper.Map(couponDto);
             return View(viewModel);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
