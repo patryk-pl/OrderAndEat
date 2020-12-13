@@ -18,6 +18,26 @@ namespace OrderAndEat.Database
         {
             return DbSet.Select(x=>x);
         }
+        public Coupon GetCouponFromTable(int? id)
+        {
+            return DbSet.FirstOrDefault(x => x.Id == id);
+        }
+        public bool Edit(Coupon coupon)
+        {
+            var foundEntity = DbSet.FirstOrDefault(x => x.Id == coupon.Id);
+            if (foundEntity != null)
+            {
+                foundEntity.Name = coupon.Name;
+                foundEntity.CouponType = coupon.CouponType;
+                foundEntity.Discount = coupon.Discount;
+                foundEntity.MinimumAmount = coupon.MinimumAmount;
+                foundEntity.Picture = coupon.Picture;
+                foundEntity.isActive = coupon.isActive;
+
+                return SaveChanges();
+            }
+            return false;
+        }
 
     }
 }

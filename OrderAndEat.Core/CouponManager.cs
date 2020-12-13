@@ -30,6 +30,19 @@ namespace OrderAndEat.Core
             return _couponRepository.AddNew(entity);
         }
 
+        public CouponDto GetCoupon(int? id)
+        {
+            var couponEntity = _couponRepository.GetCouponFromTable(id);
+
+            return _dtoMapper.Map(couponEntity);
+        }
+
+        public bool EditCoupon(CouponDto couponDto)
+        {
+            var entity = _dtoMapper.Map(couponDto);
+            return _couponRepository.Edit(entity);
+        }
+
 
 
     }

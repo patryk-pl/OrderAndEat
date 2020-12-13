@@ -8,5 +8,7 @@ namespace OrderAndEat.Core
     {
         IEnumerable<CouponDto> GetAllCoupons();
         bool AddNewCoupon(CouponDto couponDto);
+        CouponDto GetCoupon(int? id);
+        bool EditCoupon(CouponDto couponDto);
     }
 }

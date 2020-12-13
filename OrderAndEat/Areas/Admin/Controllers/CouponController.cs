@@ -41,7 +41,7 @@ namespace OrderAndEat
             if (ModelState.IsValid)
             {
                 var files = HttpContext.Request.Form.Files;
-                if (files.Count>0)
+                if (files.Count > 0)
                 {
                     byte[] p1 = null;
                     using (var fs1 = files[0].OpenReadStream())
@@ -60,6 +60,51 @@ namespace OrderAndEat
                 return RedirectToAction(nameof(Index));
             }
             return View(couponVm);
+        }
+
+        //GET - Edit
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var couponDto = _couponManager.GetCoupon(id);
+            var viewModel = _viewModelMapper.Map(couponDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(CouponViewModel couponVm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(couponVm);
+            }
+            var files = HttpContext.Request.Form.Files;
+            if (files.Count > 0)
+            {
+                byte[] p1 = null;
+                using (var fs1 = files[0].OpenReadStream())
+                {
+                    using (var ms1 = new MemoryStream())
+                    {
+                        fs1.CopyTo(ms1);
+                        p1 = ms1.ToArray();
+                    }
+                }
+                couponVm.Picture = p1;
+            }
+            var dto = _viewModelMapper.Map(couponVm);
+            _couponManager.EditCoupon(dto);
+
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
