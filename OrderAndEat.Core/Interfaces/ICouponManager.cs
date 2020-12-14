@@ -10,5 +10,6 @@ namespace OrderAndEat.Core
         bool AddNewCoupon(CouponDto couponDto);
         CouponDto GetCoupon(int? id);
         bool EditCoupon(CouponDto couponDto);
+        bool DeleteCoupon(CouponDto couponDto);
     }
 }

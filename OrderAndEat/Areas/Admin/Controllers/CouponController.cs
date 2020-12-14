@@ -77,7 +77,7 @@ namespace OrderAndEat
             }
             return View(viewModel);
         }
-
+        //POST - Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(CouponViewModel couponVm)
@@ -105,6 +105,51 @@ namespace OrderAndEat
 
             return RedirectToAction(nameof(Index));
 
+        }
+        // GET - Details
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var couponDto = _couponManager.GetCoupon(id);
+            var viewModel = _viewModelMapper.Map(couponDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+
+        }
+        //GET - Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var couponDto = _couponManager.GetCoupon(id);
+            var viewModel = _viewModelMapper.Map(couponDto);
+            if (viewModel == null)
+            {
+                return NotFound();
+            }
+            return View(viewModel);
+        }
+        //POST - Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            
+            _couponManager.DeleteCoupon(new CouponDto { Id=(int)id});
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

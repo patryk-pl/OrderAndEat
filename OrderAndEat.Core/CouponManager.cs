@@ -43,6 +43,12 @@ namespace OrderAndEat.Core
             return _couponRepository.Edit(entity);
         }
 
+        public bool DeleteCoupon(CouponDto couponDto)
+        {
+            var entity = _dtoMapper.Map(couponDto);
+            return _couponRepository.Delete(entity);
+        }
+
 
 
     }
